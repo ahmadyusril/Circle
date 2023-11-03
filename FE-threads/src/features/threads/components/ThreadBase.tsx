@@ -20,7 +20,6 @@ function ThreadBase(props: ThreadType) {
             <Avatar size="sm" src={user.profile_picture} />
 
             <Box mb={4}>
-
                 <HStack>
                     <Text
                         display="flex"
