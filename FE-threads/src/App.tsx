@@ -16,6 +16,8 @@ import { API, SetAuthToken } from "./config/api";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
+import Main from "./layout/Main";
+import ThreadDetail from "./features/threads/components/ThreadDetail";
 
 
 const theme = extendTheme({
@@ -70,7 +72,7 @@ function App() {
     if (!localStorage.token) {
       return <Navigate to="/login" />;
     } else {
-      return <Outlet />;
+      return <Main />;
     }
   }
 
@@ -89,17 +91,25 @@ function App() {
 
         <ChakraProvider theme={theme}>
           <Routes>
-
             <Route path="/" element={<IsNotLogin />}>
               <Route path="/" element={
-                <Home />
+                
+                  <Home />
+                
               } />
+              <Route path="/detail/:id" element={
+               
+                <ThreadDetail />
+               } />
             </Route>
 
             <Route path="/" element={<IsLogin />}>
-            <Route path="/" element={
-                <Home />
+              <Route path="/" element={
+                
+                  <Home />
+                
               } />
+              
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
             </Route>

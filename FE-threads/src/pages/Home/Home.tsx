@@ -87,17 +87,12 @@ function Home() {
 
     console.log(data);
 
-
     return (
         <>
-            <Grid gridTemplateColumns="270px 1.5fr 1.1fr" bg="blackAlpha.800" h="100vh" >
-
-                <GridItem px={6} py={4} borderRight="1px solid gray">
-                    <NavbarComponent />
-                </GridItem>
+            <Grid bg="blackAlpha.800" h="100vh"  >
 
                 {detail === false && (
-                    <GridItem overflowY="auto" px={6} py={4} borderRight="1px solid gray">
+                    <GridItem overflowY="auto" px={6} py={4} borderRight="1px solid gray" width={"full"}>
 
                         <Text color="white" fontSize="lg">
                             Home
@@ -155,55 +150,7 @@ function Home() {
                     </GridItem>
                 )}
 
-                {detail && (
-                    <GridItem borderRight="1px solid gray" px={6} py={6}>
-                        <HStack
-                            color="white"
-                            onClick={() => setDetail(false)}
-                            cursor="pointer"
-                        >
-                            <BsArrowLeftShort size={24} />
-                            <Text>Status</Text>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Necessitatibus tempore rerum quae repellat hic explicabo architecto
-                            eos nemo quod suscipit.
-                        </HStack>
-                        <Box mt={6}>
-                            <ThreadComponent />
-                        </Box>
-                    </GridItem>
-                )}
-
-                <GridItem px={6} py={4} >
-                    <ProfileComponent />
-                    <Box mt={4}>
-                        <SuggestedComponent />
-
-                        <Card mt={4} bg="whiteAlpha.200" p={3}>
-                            <Flex>
-                                <Text display="flex" fontSize="sm" gap={1} color="whiteAlpha.800">
-                                    Developed by <Text color="white">Your Name</Text>
-                                </Text>
-                                <Flex gap="3px" color="gray">
-                                    <BsDot size={24} />
-                                    <AiFillGithub size={20} />
-                                    <AiFillLinkedin size={20} />
-                                    <BsFacebook size={20} />
-                                    <AiFillInstagram size={20} />
-                                </Flex>
-                            </Flex>
-                            <Text
-                                fontSize="x-small"
-                                color="whiteAlpha.600"
-                                display="flex"
-                                gap={2}
-                            >
-                                Powered by <Image w="30px" src="src/assets/logo.png" alt="logo" />{" "}
-                                Dumbways Indonesia #1Coding Bootcamp
-                            </Text>
-                        </Card>
-                    </Box>
-                </GridItem>
+                
             </Grid>
 
             {/* Untuk pop up agar bisa upload image */}

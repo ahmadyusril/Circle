@@ -27,6 +27,7 @@ import { useState, useEffect } from "react";
 import { API } from "@/config/api";
 import { ThreadType } from "@/types/ThreadType";
 import { ChangeEvent } from "react";
+import { Outlet } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 type formInputData = {
@@ -75,7 +76,11 @@ function Home() {
                 <NavbarComponent />
             </GridItem>
 
-            {detail === false && (
+            <GridItem px={6} py={4} borderRight="1px solid gray">
+                <Outlet />
+            </GridItem>
+
+            {/* {detail === false && (
                 <GridItem overflowY="auto" px={6} py={4} borderRight="1px solid gray">
 
                     <Text color="white" fontSize="lg">
@@ -137,15 +142,16 @@ function Home() {
                                     user={e.user}
                                     replies={e.replies}
                                     likes={e.likes}
+                                    created_at={e.created_at}
                                     // onClick={() => setDetail(true)}
                                 />
                             ))
                         }
                     </Stack>
                 </GridItem>
-            )}
+            )} */}
 
-            {detail && (
+            {/* {detail && (
                 <GridItem borderRight="1px solid gray" px={6} py={6}>
                     <HStack
                         color="white"
@@ -162,7 +168,7 @@ function Home() {
                         <ThreadComponent />
                     </Box>
                 </GridItem>
-            )}
+            )} */}
 
             <GridItem px={6} py={4} >
                 <ProfileComponent />

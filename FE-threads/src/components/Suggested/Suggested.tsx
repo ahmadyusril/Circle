@@ -1,5 +1,5 @@
 import { Box, Card, Stack, Text, Avatar } from "@chakra-ui/react"
-import SuggestedBase from "@/features/threads/components/SuggestedBase"
+import SuggestedBase from "@/features/suggested/components/SuggestedBase"
 
 function SuggestedComponent() {
     return (
