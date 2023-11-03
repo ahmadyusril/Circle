@@ -1,12 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-import {
-  Route,
-  Routes,
-  Navigate,
-  useNavigate,
-  Outlet
-} from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate, Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { AUTH_CHECK, AUTH_ERROR } from "@/store/RootReducer";
@@ -19,22 +12,20 @@ import Login from "./pages/Login/Login";
 import Main from "./layout/Main";
 import ThreadDetail from "./features/threads/components/ThreadDetail";
 
-
 const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'darkBackground',
-      }
-    }
+        bg: "darkBackground",
+      },
+    },
   },
   colors: {
-    darkBackground: '#222'
-  }
-})
+    darkBackground: "#222",
+  },
+});
 
 function App() {
-
   const auth = useSelector((state: RootState) => state.auth);
   console.log(auth);
 
@@ -86,40 +77,22 @@ function App() {
 
   return (
     <>
-
       {isLoading ? null : (
-
         <ChakraProvider theme={theme}>
           <Routes>
-            <Route path="/" element={<IsNotLogin />}>
-              <Route path="/" element={
-                
-                  <Home />
-                
-              } />
-              <Route path="/detail/:id" element={
-               
-                <ThreadDetail />
-               } />
+            <Route element={<IsNotLogin />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/thread/:id" element={<ThreadDetail />} />
             </Route>
 
             <Route path="/" element={<IsLogin />}>
-              <Route path="/" element={
-                
-                  <Home />
-                
-              } />
-              
+              <Route path="/" element={<Home />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
             </Route>
-
           </Routes>
-
         </ChakraProvider>
-
       )}
-
     </>
   );
 }

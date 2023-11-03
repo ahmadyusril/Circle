@@ -48,6 +48,7 @@ function ProfileFeature() {
                     rounded="full"
                 >
                     <Avatar size="md" name={user?.full_name} src={user?.profile_picture} />
+                    
                 </Box>
             </Box>
 

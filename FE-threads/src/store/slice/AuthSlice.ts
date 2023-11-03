@@ -25,7 +25,7 @@ export const AuthSlice = createSlice({
 				email: payload.email,
 				full_name: payload.full_name,
 				username: payload.username,
-				profile_picture: payload.picture,
+				profile_picture: payload.profile_picture,
 			};
 
 			return user;
@@ -38,7 +38,7 @@ export const AuthSlice = createSlice({
 				email: payload.email,
 				full_name: payload.full_name,
 				username: payload.username,
-				profile_picture: payload.picture,
+				profile_picture: payload.profile_picture,
 			};
 
 			return user;

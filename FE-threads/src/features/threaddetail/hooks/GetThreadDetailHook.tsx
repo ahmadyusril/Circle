@@ -15,7 +15,7 @@ export function useGetThreadDetail() {
         // queryFn: async () => await API.get("/threads").then((res) => res.data),
         queryFn: async () => {
             const { data } = await API.get(`/thread/${id}`);
-            return data.data;
+            return data;
         },
         // refetchInterval: 100
 

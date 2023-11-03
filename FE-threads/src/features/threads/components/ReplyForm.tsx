@@ -12,8 +12,8 @@ import {
 import { BiImageAdd } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/type/RootState";
-import { usePostReply } from "../Hooks/usePostReply";
-import { Replies } from "@/Types/ReplyAPI";
+import { usePostReply } from "@/features/reply/hooks/PostReplyHook";
+import { Replies } from "@/types/ReplyType";
 
 type RepliesProps = {
 	threadReply: {

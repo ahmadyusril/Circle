@@ -7,9 +7,9 @@ function SuggestedComponent() {
             <Text color="white">Suggested for you</Text>
             <Box mt={3}>
                 <Stack>
-                    <SuggestedBase name="Muhammad Jawir" status="Follow" username="@jawiraja" />
-                    <SuggestedBase name="Mursid Ngawi" status="Follow" username="@ngawimusical" />
-                    <SuggestedBase name="Rusdi Bilek" status="Follow" username="@mamangrusdi69" />
+                    <SuggestedBase full_name="Muhammad Jawir" status="Follow" username="@jawiraja" />
+                    <SuggestedBase full_name="Mursid Ngawi" status="Follow" username="@ngawimusical" />
+                    <SuggestedBase full_name="Rusdi Bilek" status="Follow" username="@mamangrusdi69" />
                 </Stack>
             </Box>
         </Card>

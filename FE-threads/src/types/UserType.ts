@@ -3,9 +3,9 @@ export type UserType = {
   email: string;
   // password: string;
   full_name: string;
-  profile_description: string;
+  profile_description?: string;
   username: string;
-  profile_picture: string;
+  profile_picture?: string;
 };
 
 export type UserRegisterType = {

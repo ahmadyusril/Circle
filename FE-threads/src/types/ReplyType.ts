@@ -14,10 +14,11 @@ export type PostReply={
     thread: number;
 }
 
-export type FormReplyType = {
+export type Replies = {
     id: number;
     content: string;
     image: string;
     user: UserType;
     thread: ThreadType
+    created_at: string;
 }

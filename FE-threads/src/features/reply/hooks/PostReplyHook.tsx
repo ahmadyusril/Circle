@@ -1,16 +1,17 @@
-import { FormReplyType } from "@/types/ReplyType";
+import { PostReply } from "@/types/ReplyType";
 import { API } from "@/config/api";
 import { RootState } from "@/store/type/RootState";
-import { useDisclosure, useToast } from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { ChangeEvent, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useToast } from "@/features/threads/hooks/useToast";
 
 export function usePostReply() {
 	const {id} = useParams();
 	const toast = useToast();
-	const [form, setForm] = useState<FormReplyType>({
+	const [form, setForm] = useState<PostReply>({
 		thread: Number(id),
 		content: "",
 	});
@@ -37,7 +38,7 @@ export function usePostReply() {
 			if (image) {
 				formData.append("image", image);
 			}
-			formData.append("thread", String(form.thread));
+			formData.append("thread_id", String(form.thread));
 			formData.append("content", String(form.content));
 			await API.post("/reply", formData);
 		},

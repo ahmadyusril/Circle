@@ -1,6 +1,9 @@
 import { Avatar, Box, Button, Card, Flex, HStack, Stack, Text } from "@chakra-ui/react"
+import { RootState } from "@/store/type/RootState"
+import { useSelector } from "react-redux"
 
 function ProfileComponent() {
+    const user = useSelector((state: RootState) => state?.auth);
     return (
         <Card bg="whiteAlpha.200" p={4}>
             <Text color="white">My Profile</Text>
@@ -9,7 +12,7 @@ function ProfileComponent() {
                 h="70px"
                 mt={3}
                 rounded="xl"
-                bg=  "linear-gradient(to top, #095A89 0%, #36ABEF 100%)"
+                bgImage= {"https://genshin.honeyhunterworld.com/img/furina_089_gacha_splash.webp?x76042"}
             >
                 <Box
                     pos="absolute"
@@ -19,7 +22,7 @@ function ProfileComponent() {
                     bg="blackAlpha.800"
                     rounded="full"
                 >
-                    <Avatar size="md" src="https://th.bing.com/th/id/OIP.XaRTc0U8hrj3E-eZbN7ROQHaLH?pid=ImgDet&rs=1 " />
+                    <Avatar size="md" name={user.full_name} src={user.profile_picture} />
                 </Box>
             </Box>
             <Flex justify="right" mt={-6}>
@@ -38,10 +41,10 @@ function ProfileComponent() {
 
             <Stack spacing={0}>
                 <Text mt={3} fontSize="lg" fontWeight="semibold" color="white">
-                    ✨Ahmad Yusril✨
+                    ✨{user.full_name}✨
                 </Text>
-                <Text fontSize='xs' color='whiteAlpha.600'>@ahmadyusril</Text>
-                <Text fontSize='sm' color='whiteAlpha.800'>Peminat nomor satu Furina</Text>
+                <Text fontSize='xs' color='whiteAlpha.600'>@{user.username}</Text>
+                <Text fontSize='sm' color='whiteAlpha.800'>{user.profile_description}</Text>
                 <HStack fontSize='sm'>
                     <HStack>
                         <Text color='whiteAlpha.800'>100</Text>

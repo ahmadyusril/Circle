@@ -42,7 +42,7 @@
 //     content: string;
 // };
 
-// function Home() {   
+// function Home() {
 //     const [detail, setDetail] = useState(false);
 //     const [data, setData] = useState([]);
 //     const [form, setForm] = useState<formInputData>({
@@ -56,8 +56,8 @@
 //             const response = await API.get("/threads");
 //             // console.log(response);
 
-//             setData(response.data); 
-            
+//             setData(response.data);
+
 //         };
 //         fetchData();
 //     }, []);
@@ -75,7 +75,7 @@
 //         const formData = new FormData();
 //         if (image) {
 //             formData.append("image", image);
-//         }   
+//         }
 //         formData.append("content", form.content);
 //         await API.post("/thread", formData);
 //         // this.fetchData()
@@ -147,7 +147,6 @@
 //                     </GridItem>
 //                 )}
 
-                
 //             </Grid>
 
 //             {/* Untuk pop up agar bisa upload image */}
@@ -175,7 +174,7 @@
 //                         <Button colorScheme='whatsapp' onClick={handlePost}>
 //                             Post
 //                         </Button>
-                        
+
 //                         <Button colorScheme='blue' mr={3} onClick={onClose}>
 //                             Close
 //                         </Button>
@@ -196,39 +195,39 @@ import { useGetThread } from "@/features/threads/hooks/useGetThread";
 import ThreadForm from "@/features/threads/components/ThreadForm";
 
 function Home() {
-	const { getThread, isLoading } = useGetThread();
+  const { getThread, isLoading } = useGetThread();
 
-	const [detail, setDetail] = useState(false);
+  const [detail, setDetail] = useState(false);
 
-	if (isLoading) {
-		return <div>Loading...</div>;
-	}
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-	return (
-		<>
-				<>
-					<Text color="white" fontSize="lg">
-						Home
-					</Text>
-					<ThreadForm />
-					<Stack mt={6}>
-						{getThread &&
-							getThread?.map((e: ThreadType) => (
-								<ThreadBase
-									key={e.id}
-									id={e.id}
-									content={e.content}
-									image={e.image}
-									user={e.user}
-									replies={e.replies}
-									likes={e.likes}
-									created_at={e.created_at}
-								/>
-							))}
-					</Stack>
-				</>
-		</>
-	);
+  return (
+    <>
+      <>
+        <Text color="white" fontSize="lg">
+          Home
+        </Text>
+        <ThreadForm />
+        <Stack mt={6}>
+          {getThread &&
+            getThread?.map((e: ThreadType) => (
+              <ThreadBase
+                key={e.id}
+                id={e.id}
+                content={e.content}
+                image={e.image}
+                user={e.user}
+                replies={e.replies}
+                likes={e.likes}
+                created_at={e.created_at}
+              />
+            ))}
+        </Stack>
+      </>
+    </>
+  );
 }
 
 export default Home;

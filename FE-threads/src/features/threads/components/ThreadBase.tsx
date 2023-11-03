@@ -5,9 +5,10 @@ import { BiCommentDetail } from "react-icons/bi";
 import { useState } from "react";
 import { ThreadType } from "@/types/ThreadType";
 import getPostedTime from "@/utils/getPostedTime";
+import { Link } from "react-router-dom";
 
 function ThreadBase(props: ThreadType) {
-    const { content, image, user, replies, likes, created_at } = props;
+    const { content, image, user, replies, likes, created_at, id } = props;
     const [like, setLike] = useState(false);
 
     function handleLike() {
@@ -56,13 +57,14 @@ function ThreadBase(props: ThreadType) {
                         </Text>
                     </HStack>
 
+                    <Link to={`/thread/${id}`}>
                     <HStack cursor="pointer" color="whiteAlpha.600" mt={2}>
                         <BiCommentDetail size={20} />
                         <Text fontSize="sm" color="whiteAlpha.600">
                             {replies?.length}
                         </Text>
                     </HStack>
-
+                    </Link>
                 </HStack>
 
             </Box>

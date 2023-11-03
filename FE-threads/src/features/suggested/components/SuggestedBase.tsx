@@ -2,9 +2,9 @@ import { Avatar, Button, HStack, Stack, Text } from "@chakra-ui/react"
 import { useState } from 'react'
 
 interface IProps {
-    full_name?: string
-    username?: string
-    status?: string
+    full_name: string
+    username: string
+    status: string
 }
 function SuggestedBase(props: IProps) {
     const { full_name, status, username } = props
